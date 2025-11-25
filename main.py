@@ -26,10 +26,26 @@ def data():
     return jsonify(user_data)
 
 
-@app.route("/")
-def html_page():
-    Name = "John"
-    return render_template("index.html", name=Name)
+# @app.route("/")
+# def html_page():
+#     Name = "John"
+#     return render_template("index.html", name=Name)
+
+
+# @app.route("/", methods=["GET"])
+# def html_page():
+#     # Name = "John"
+#     return "Hello World!"
+
+
+@app.route("/", methods=["GET"])
+def form():
+    return render_template("form.html")
+
+
+@app.route("/form", methods=["POST"])
+def welcome():
+    return "Hello, we have received your submission!"
 
 
 ## trigger the flask app
