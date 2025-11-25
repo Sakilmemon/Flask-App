@@ -1,5 +1,5 @@
 # import flask
-from flask import Flask
+from flask import Flask, jsonify
 
 ## create the flask instance
 app = Flask(__name__)
@@ -15,14 +15,15 @@ def home():
 
 @app.route("/about us")
 def about():
-    data = "This is the About Us Page."
-    return data
+    return """<h1>About Us</h1><br>
+             <h2>Our Company</h2><br>
+             <p>We are not dedicated to providing the best services to our customers.</p>"""
 
 
 @app.route("/data")
 def data():
-    user_data = "Here is some data."
-    return user_data
+    user_data = {"name": "John Doe", "Age": 30, "city": "New York"}
+    return jsonify(user_data)
 
 
 ## trigger the flask app
